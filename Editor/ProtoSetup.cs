@@ -47,15 +47,39 @@ public static class ProtoSetup
                         "com.applovin.mediation.dsp"
                     )
                 });
-
-                // Assign the updated scopedRegistries array back to the manifest
-                manifest["scopedRegistries"] = scopedRegistries;
-
-                // Write the updated manifest content back to the file
-                File.WriteAllText(manifestPath, manifest.ToString());
-                AssetDatabase.Refresh();
-                Debug.Log("AppLovin MAX Unity registry added to manifest.");
             }
+
+            // Check if the OpenUPM registry is already added
+            bool openUpmRegistryExists = false;
+            foreach (var registry in scopedRegistries)
+            {
+                if (registry["name"].ToString() == "package.openupm.com")
+                {
+                    openUpmRegistryExists = true;
+                    break;
+                }
+            }
+
+            // If the OpenUPM registry is not in the manifest, add it
+            if (!openUpmRegistryExists)
+            {
+                scopedRegistries.Add(new JObject
+                {
+                    ["name"] = "package.openupm.com",
+                    ["url"] = "https://package.openupm.com",
+                    ["scopes"] = new JArray(
+                        "com.google.external-dependency-manager"
+                    )
+                });
+            }
+
+            // Assign the updated scopedRegistries array back to the manifest
+            manifest["scopedRegistries"] = scopedRegistries;
+
+            // Write the updated manifest content back to the file
+            File.WriteAllText(manifestPath, manifest.ToString());
+            AssetDatabase.Refresh();
+            Debug.Log("AppLovin MAX Unity and OpenUPM registries added to manifest.");
         }
         else
         {
