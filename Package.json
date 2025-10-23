@@ -5,7 +5,8 @@
     "description": "Base prototype setup with Adjust, AppLovin MAX, and utilities.",
     "dependencies": {
       "com.unity.nuget.newtonsoft-json": "3.0.2",
-      "com.google.external-dependency-manager": "1.2.185"
+      "com.google.external-dependency-manager": "1.2.185",
+      "com.applovin.mediation.ads": "8.3.1"
     },
     "scopedRegistries": [
       {
