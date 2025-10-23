@@ -4,20 +4,18 @@
     "version": "1.0.0",
     "description": "Base prototype setup with Adjust, AppLovin MAX, and utilities.",
     "dependencies": {
-      "com.applovin.max": "5.8.1",
-      "com.adjust.sdk": "https://github.com/adjust/unity_sdk.git#v4.33.0"
     },
     "scopedRegistries": [
       {
-        "name": "AppLovin",
-        "url": "https://package.applovin.com",
-        "scopes": ["com.applovin"]
+        "name": "AppLovin MAX Unity",
+        "url": "https://unity.packages.applovin.com",
+        "scopes": ["com.applovin.mediation.ads", "com.applovin.mediation.adapters", "com.applovin.mediation.dsp"]
       }
     ],
     "author": {
-      "name": "Your Studio Name",
-      "email": "dev@yourstudio.com",
-      "url": "https://yourstudio.com"
+      "name": "Mindstorm",
+      "email": "saqlain@mindstormstudios.com",
+      "url": "https://github.com/saqlaind32ev/MindstormProto"
     }
   }
   
