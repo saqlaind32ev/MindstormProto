@@ -4,6 +4,7 @@
     "version": "1.0.0",
     "description": "Base prototype setup with Adjust, AppLovin MAX, and utilities.",
     "dependencies": {
+      "com.unity.nuget.newtonsoft-json": "3.0.2"
     },
     "scopedRegistries": [
       {
