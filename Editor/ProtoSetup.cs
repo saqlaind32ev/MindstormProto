@@ -70,6 +70,7 @@ public static class ProtoSetup
         
         File.WriteAllText(manifestPath, manifest.ToString());
         AssetDatabase.Refresh();
+        UnityEditor.PackageManager.Client.Resolve();
         Debug.Log("AppLovin MAX Unity and OpenUPM registries added to manifest.");
     }
 }
