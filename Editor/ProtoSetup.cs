@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public static class ProtoSetup
 {
     private static readonly string MANIFEST_PATH =  Path.Combine(Directory.GetCurrentDirectory(), "Packages/manifest.json");
-
+    private static readonly string MARKER_PATH = "ProjectSettings/com.mindstorm.proto-template.installed";
     private static readonly List<RegistryEntry> Registries = new List<RegistryEntry>
     {
         new RegistryEntry(
@@ -71,11 +71,16 @@ public static class ProtoSetup
         { "com.applovin.mediation.adapters.verve.ios", "3020000.0.0" },
         { "com.applovin.mediation.adapters.vungle.android", "7050100.0.0" },
         { "com.applovin.mediation.adapters.vungle.ios", "7050300.0.0" },
-        { "com.mindstorm.analytics", "git@github.com:saqlaind32ev/MindstormProto.git"}
+        { "com.mindstorm.analytics", "0.1.4"}
     };
      
     static ProtoSetup()
     {
+        if (File.Exists(MARKER_PATH))
+        {
+            return;
+        }
+        
         if (!File.Exists(MANIFEST_PATH))
         { 
             Debug.LogError("manifest.json not found.");
@@ -89,6 +94,7 @@ public static class ProtoSetup
         EnsureDependencies(manifest, Dependencies);
 
         File.WriteAllText(MANIFEST_PATH, manifest.ToString());
+        File.WriteAllText(MARKER_PATH, System.DateTime.UtcNow.ToString("Proto Starter Kit Imported"));
         AssetDatabase.Refresh();
     }
     
