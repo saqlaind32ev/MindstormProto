@@ -6,6 +6,7 @@
     "dependencies": {
       "com.unity.nuget.newtonsoft-json": "3.0.2",
       "com.google.external-dependency-manager": "1.2.185",
+      "com.adjust.sdk": "https://github.com/adjust/unity_sdk.git?path=Assets/Adjust",
       "com.applovin.mediation.ads": "8.3.1",
       "com.applovin.mediation.adapters.bidmachine.android": "3030002.0.0",
       "com.applovin.mediation.adapters.bidmachine.ios": "304000000.0.0",
@@ -44,8 +45,7 @@
       "com.applovin.mediation.adapters.verve.android": "3030000.0.0",
       "com.applovin.mediation.adapters.verve.ios": "3020000.0.0",
       "com.applovin.mediation.adapters.vungle.android": "7050100.0.0",
-      "com.applovin.mediation.adapters.vungle.ios": "7050300.0.0",
-      "com.adjust.sdk": "https://github.com/adjust/unity_sdk.git?path=Assets/Adjust"
+      "com.applovin.mediation.adapters.vungle.ios": "7050300.0.0"
       },
     "scopedRegistries": [
       {
