@@ -76,7 +76,11 @@ public static class ProtoSetup
      
     static ProtoSetup()
     {
-        if (!File.Exists(MANIFEST_PATH)) { Debug.LogError("manifest.json not found."); return; }
+        if (!File.Exists(MANIFEST_PATH))
+        { 
+            Debug.LogError("manifest.json not found.");
+            return; 
+        }
 
         var manifestContent = File.ReadAllText(MANIFEST_PATH);
         var manifest = JObject.Parse(manifestContent);
