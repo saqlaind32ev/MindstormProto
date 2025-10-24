@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public static class ProtoSetup
 {
     private static readonly string MANIFEST_PATH =  Path.Combine(Directory.GetCurrentDirectory(), "Packages/manifest.json");
+
     private static readonly List<RegistryEntry> Registries = new List<RegistryEntry>
     {
         new RegistryEntry(
@@ -21,6 +22,11 @@ public static class ProtoSetup
             "package.openupm.com",
             "https://package.openupm.com",
             "com.google.external-dependency-manager"
+        ),
+        new RegistryEntry(
+            "Mindstorm Studios",
+            "https://packages.mindstormstudios.com",
+            "com.mindstorm"
         )
     };
     private static readonly Dictionary<string, string> Dependencies = new Dictionary<string, string>
@@ -64,7 +70,8 @@ public static class ProtoSetup
         { "com.applovin.mediation.adapters.verve.android", "3030000.0.0" },
         { "com.applovin.mediation.adapters.verve.ios", "3020000.0.0" },
         { "com.applovin.mediation.adapters.vungle.android", "7050100.0.0" },
-        { "com.applovin.mediation.adapters.vungle.ios", "7050300.0.0" }
+        { "com.applovin.mediation.adapters.vungle.ios", "7050300.0.0" },
+        { "com.mindstorm.analytics", "*"}
     };
      
     static ProtoSetup()
