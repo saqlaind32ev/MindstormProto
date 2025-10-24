@@ -71,7 +71,7 @@ public static class ProtoSetup
         { "com.applovin.mediation.adapters.verve.ios", "3020000.0.0" },
         { "com.applovin.mediation.adapters.vungle.android", "7050100.0.0" },
         { "com.applovin.mediation.adapters.vungle.ios", "7050300.0.0" },
-        { "com.mindstorm.analytics", "*"}
+        { "com.mindstorm.analytics", "latest"}
     };
      
     static ProtoSetup()
