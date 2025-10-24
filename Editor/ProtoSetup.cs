@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 [InitializeOnLoad]
 public static class ProtoSetup
 {
+    private bool isChangeRequired = false;
     private static ProtoSetup()
     {
         string manifestPath = Path.Combine(Directory.GetCurrentDirectory(), "Packages/manifest.json");
@@ -26,6 +27,7 @@ public static class ProtoSetup
             if (registry["name"].ToString() == "AppLovin MAX Unity")
             {
                 appLovinRegistryExists = true;
+                isChangeRequired = true;
                 break;
             }
         }
@@ -50,6 +52,7 @@ public static class ProtoSetup
             if (registry["name"].ToString() == "package.openupm.com")
             {
                 openUpmRegistryExists = true;
+                isChangeRequired = true;
                 break;
             }
         }
@@ -67,10 +70,23 @@ public static class ProtoSetup
         }
         
         manifest["scopedRegistries"] = scopedRegistries;
-        
+        isChangeRequired |= SetDep(deps, "com.unity.nuget.newtonsoft-json", "3.0.2");
+        isChangeRequired |= SetDep(deps, "com.google.external-dependency-manager", "1.2.185"); // specific version after OpenUPM registry
+        isChangeRequired |= SetDep(deps, "com.adjust.sdk", "https://github.com/adjust/unity_sdk.git#v5.4.3?path=Assets/Adjust");
+        isChangeRequired |= SetDep(deps, "com.applovin.mediation.ads", "8.3.1");
+
+        if(!isChangeRequired) == return;
         File.WriteAllText(manifestPath, manifest.ToString());
         AssetDatabase.Refresh();
         UnityEditor.PackageManager.Client.Resolve();
         Debug.Log("AppLovin MAX Unity and OpenUPM registries added to manifest.");
+    }
+
+    private static bool SetDep(JObject deps, string id, string value)
+    {
+        var cur = (string)deps[id];
+        if (cur == value) return false;
+        deps[id] = value;
+        return true;
     }
 }
