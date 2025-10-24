@@ -1,15 +1,6 @@
 {
-  "scopedRegistries": [
-    {
-      "name": "AppLovin MAX Unity",
-      "url": "https://unity.packages.applovin.com",
-      "scopes": ["com.applovin.mediation.ads", "com.applovin.mediation.adapters", "com.applovin.mediation.dsp"]
-    },
-    {
-      "name": "package.openupm.com",
-      "url": "https://package.openupm.com",
-      "scopes": ["com.google.external-dependency-manager"]
-    }
-  ]
+  "dependencies": {
+    "com.google.external-dependency-manager": "1.2.185"
+  }
 }
   

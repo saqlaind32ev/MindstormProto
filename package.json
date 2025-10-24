@@ -3,9 +3,9 @@
     "displayName": "Proto Template",
     "version": "1.0.0",
     "description": "Base prototype setup with Adjust, AppLovin MAX, and utilities.",
-    "dependencies": {
-      "com.unity.nuget.newtonsoft-json": "3.0.2"
-      },
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0.2"
+    },
     "author": {
       "name": "com.mindstorm.proto-template",
       "email": "saqlain@mindstormstudios.com",
